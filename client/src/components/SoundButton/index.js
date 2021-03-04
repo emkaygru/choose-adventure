@@ -1,26 +1,39 @@
-import UseSound from 'use-sound';
+import React from "react";
+import Audio from "./theme.mp3";
+import { Howl, Howler } from "howler";
 
 function SoundButton() {
-  const soundUrl = "../../../public/images/theme.mp3"
+  const [playing, setPlaying] = React.useState(false);
+  const [buttonText, setButtonText] = React.useState("PLAY SOUND!");
 
-  const [play, { stop, isPlaying }] = UseSound(soundUrl);
+  var sound = new Howl({
+    src: [Audio],
+    onplay: function () {
+      setPlaying(true);
+      setButtonText("STOP!");
+    },
+    onstop: function () {
+      setPlaying(false);
+      setButtonText("PLAY!");
+    },
+  });
 
-  function handleClick() {
-    play()
-  }
+  Howler.volume(0.1);
+
+  const handleClick = () => {
+    if (!playing) {
+      sound.play();
+    }
+    if (playing) {
+      Howler.stop();
+    }
+  };
 
   return (
-    <button onClick={handleClick}>testtest
-    
-      {/* active={isPlaying}
-      size={60}
-      iconColor="var(--color-background)"
-      idleBackgroundColor="var(--color-text)"
-      activeBackgroundColor="var(--color-primary)"
-      play={play}
-      stop={stop}  */}
-      </button>
+    <li className="nav-style pad nav-item" onClick={handleClick}>
+      <span id="playbtn">{buttonText}</span>
+    </li>
   );
 }
 
-export default SoundButton; 
+export default SoundButton;
