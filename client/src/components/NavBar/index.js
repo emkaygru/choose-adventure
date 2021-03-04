@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AuthService from "../../authentication/AuthService";
 import { AuthContext } from "../../authentication/AuthContext";
 import "./style.css";
-import Logo from '../Logo';
+import Logo from "../Logo";
 import SoundButton from "../SoundButton";
 
 const NavBar = (props) => {
@@ -47,9 +47,6 @@ const NavBar = (props) => {
     );
   };
 
-
-   
-
   return (
     <nav className="navbar navbar-default navbar-dark bg-dark justify-content-center">
       <ul className="nav navbar-nav navbar-expand-lg">
@@ -59,11 +56,10 @@ const NavBar = (props) => {
         <li className="nav-item pad nav-style">
           <Link to="/">HOME</Link>
         </li>
-      <li> 
-        <SoundButton />
-        </li>
-
         {!isAuthenticated ? unauthenticatedNavBar() : authenticatedNavBar()}
+        <li>
+          <SoundButton />
+        </li>
       </ul>
     </nav>
   );
