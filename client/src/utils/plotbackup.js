@@ -537,7 +537,7 @@ const plot = [
     title: "Chapter 11",
     admin: "Chapter 11 - The Bus",
     content:
-      "As you follow the horn sound of the horn, you realize it’s coming from the bus at the main drop off area. You walk up to the bus and see that it’s running, but the driver doesn’t seem to be in it. The doors are wide open and there is a brick sitting on the steering wheel - firing the horn.",
+      "As you follow the sound of the horn, you realize it’s coming from the bus at the main drop off area. You walk up to the bus and see that it’s running, but the driver doesn’t seem to be in it. The doors are wide open and there is a brick sitting on the steering wheel - firing the horn.",
     choices: [
       {
         text: "Go in the Bus",
